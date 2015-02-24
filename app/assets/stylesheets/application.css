@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.gris {
+	color: grey;
+}
+
+.hdr-logo {
+	height: 30px;
+	width: 30px;
+}
+
+.hdr-white {
+	background-color: white;
+}
+
+.img-cr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 350px;
+}
+
+.hdr-color {
+	background-color: #353536;
+}
+
+.color-letter {
+	color: #777;
+}
+
+.hdr-magin-top {
+	margin-top: -40px;
+}
+
+.graphic-margin {
+	margin-top: -20px;
+	margin-right: 15px;
+}
+
+.hdr-bottom {
+	background-color: #f1c40f;
+}

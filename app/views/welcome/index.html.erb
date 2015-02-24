@@ -1,0 +1,93 @@
+<!-- carrousel -->
+<section id="myCarousel" class="carousel slide indicators-wrap" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="active item img-cr">
+	     <%= image_tag 'imageCarousel4.jpg' %>
+    </div>
+    <div class="item img-cr">
+	     <%= image_tag 'imageCarousel5.jpg' %>
+    </div>
+    <div class="item img-cr">
+	     <%= image_tag 'imageCarousel8.jpg' %>
+    </div>
+  </div>
+ 
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+    <i class="icon-chevron-sign-left"></i>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+    <span><i class="icon-chevron-sign-right"></i></span>
+  </a>
+</section><br>
+<!-- fin carrousel -->
+
+<!-- zona conceptos, 3 columnas -->
+	    <i class="icon-chevron-sign-left"></i>
+
+	<div class="row">
+	  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+	    <div class="thumbnail">
+	      <%= image_tag 'bitcoinLogo2.png' %>
+	      <div class="caption">
+	        <h3>Encabezado 1</h3>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+	    <div class="thumbnail">
+	      <%= image_tag 'bitcoinLogo2.png' %>
+	      <div class="caption">
+	        <h3>Encabezado 2</h3>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+	    <div class="thumbnail">
+	      <%= image_tag 'bitcoinLogo2.png' %>
+	      <div class="caption">
+	        <h3>Encabezado 3</h3>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+<!-- fin zona conceptos, 3 columnas -->
+
+
+<h1>Esto es el Welcome!!!</h1>
+
+<h3>Parseado: <br>
+	<div id="values_box">
+		<%= @parseJson %><br><br> <!-- pinto todos los valores tipo hash -->
+	</div>
+</h3>
+
+<h3>Pintar el valor 'updated' del json parseado:
+	<div id="updatedValue"><%= @parseJson["btc_usd"]["updated"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
+</h3>
+
+<h3>Pintar el valor <strong>'buy'</strong> que es que se actualiza en la <strong>gráfica</strong>:
+  <div id="buyValue2"><%= @parseJson["btc_usd"]["buy"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
+</h3>
+
+<!--<div class="container">
+    <div id="graphic_box"></div> aquí va la gráfica
+</div> -->
+
+

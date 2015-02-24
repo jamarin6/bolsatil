@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bolsatil</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<!-- header -->
+    <nav class="navbar navbar-default hdr-color">
+      <div class="container-fluid">
+        <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><i class="fa fa-btc fa-2x"></i></a>
+
+        </div><br>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link2</a></li>
+            <li><a href="#">Link3</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav hdr-magin-top">
+            <li><a href="#"><h2>Trending</h2><h6>Dell Expands Bitcoin Payments to UK and Canada</h6></a></li> 
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right row">
+              <li><div id="graphic_box" class="graphic-margin"></div></li>
+              <li><h1 id="buy_dollar_value" class="color-letter"><i class='color-letter fa fa-usd'></i> 000.00</h1>
+                  <h1 id="buy_euro_value" class="color-letter"><i class='color-letter fa fa-eur'></i> 000.00</h1>
+                  <!--<i class="color-letter fa fa-eur fa-2x"></i><h1 id="buy_euro_value" class="color-letter">000.00</h1>-->
+              </li>
+          </ul>
+
+
+          
+           <!--  <div class="row">
+              <div class="pull-right col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              </div>
+              <div class="pull-right col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="row ">
+                  <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1">$</div> --><!--el simbolo del dolar-->
+                 <!-- <div class=" col-xs-11 col-sm-11 col-md-11 col-lg-11"><div id="buy_dollar_value"></div></div>-->
+               <!-- </div>
+                <div>
+                  <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1">€</div>--><!--el simbolo del euro-->
+                 <!-- <div class=" col-xs-11 col-sm-11 col-md-11 col-lg-11"><div id="buy_euro_value"></div></div>--><!--cantidad en euros-->
+               <!-- </div>
+              </div>
+            </div>-->
+        </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+      <div class="hdr-bottom"><!--aqui la linea nav amarilla bajo el header q se ve en coindeskk-->
+        <div class="row">
+          <div class="col-lg-4 hdr-nav">Nav 1</div>     
+          <div class="col-lg-4 hdr-nav">Nav 2</div>     
+          <div class="col-lg-4 hdr-nav">Nav 3</div>     
+        </div>
+      </div> 
+    </div> 
+
+  <script type="text/javascript">
+  $(function () {
+
+    Highcharts.setOptions({
+        global : {
+            useUTC : false
+        }
+    });
+
+    // Create the chart
+    $('#graphic_box').highcharts('StockChart', {
+        chart : {
+          height: 180,
+          width: 280,
+            events : {
+                load : function () {
+
+                    // set up the updating of the chart each second
+                    var series = this.series[0];
+                    setInterval(function () {
+                       $.get("<%= welcome_index_url(:format => :js) %>", function(data){
+                            //quiero los datos 'updated' y 'high' en 'x' y en 'y'
+                            var buy_euros = buy_var*0.878397*1.005; //obtengo el valor 'buy' pasado ya a euros y con incremento del 0,5%
+                            var buy_euros_truncate = buy_euros.toFixed(2); //el valor 'buy' en euros con incremento del 0,5% y truncado
+                            var buy_dollars = buy_var*1.005; //el valor en dolares de 'buy' con incremento del 0,5%
+                            var buy_dollars_truncate = buy_dollars.toFixed(2); //'buy' en dolares ya con el incremento y truncado
+                           $('#values_box').html(values); //los valores en forma de hash
+                           $('#updatedValue').html(updated_var);
+                           $('#buy_dollar_value').html("<h1><i class='color-letter fa fa-usd'></i> " + buy_dollars_truncate + "</h1>"); //el valor 'buy' en dolares con un 5% añadido y truncado
+                           $('#buy_euro_value').html("<h1><i class='color-letter fa fa-eur'></i> " + buy_euros_truncate + "</h1>"); //aqui buscar api para descargar la equivalencia a € actualizada
+                           $('#buyValue2').html(buy_var);
+
+                           eval(data);
+                           //alert(typeof x);
+                          series.addPoint([x, buy_var], true, true);
+                          });
+                    }, 1000);
+                }
+            }
+        },
+
+        yAxis: {
+            title: {
+                text: 'Buy ($)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+
+        rangeSelector: {
+          enabled: false
+        },
+
+        title : {
+            text : 'Bitcoin price index (24h)'
+        },
+
+        exporting: {
+            enabled: false
+        },
+
+        series : [{
+            name : 'Random data',
+            data : (function () {
+                // generate an array of random data
+                var data = [], time = (new Date()).getTime(), i;
+
+                for (i = -999; i <= 0; i += 1) {
+                    data.push([
+                        time + i * 1000,
+                        Math.round(Math.random() * 100)
+                    ]);
+                }
+                return data;
+            }())
+        }]
+    });
+
+});
+</script>
+<!-- fin header -->
+<div class="container">
+  <%= yield %>
+</div>
+<!-- footer -->
+<nav class="navbar navbar-default hdr-color">
+  <div class="container">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-btc fa-2x"></i></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+       
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://twitter.com/jamarinhidalgo"><i class="fa fa-linkedin-square"></i></a></li>
+          <li><a href="https://twitter.com/jamarinhidalgo"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="https://twitter.com/jamarinhidalgo"><i class="fa fa-twitter-square"></i></a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </div>
+</nav>
+<!-- fin footer -->
+</body>
+</html>

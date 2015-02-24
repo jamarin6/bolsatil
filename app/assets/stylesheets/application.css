@@ -37,6 +37,8 @@
 
 .hdr-color {
 	background-color: #353536;
+	border-bottom-width: 20px;
+	border-bottom-color: #f1c40f;
 }
 
 .color-letter {
@@ -54,4 +56,9 @@
 
 .hdr-bottom {
 	background-color: #f1c40f;
+}
+
+.logo-size {
+	width: 40px;
+	height: 40px;
 }

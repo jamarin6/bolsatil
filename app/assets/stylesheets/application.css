@@ -35,10 +35,17 @@
   height: 350px;
 }
 
-.hdr-color {
+.hdr-style {
 	background-color: #353536;
-	border-bottom-width: 20px;
-	border-bottom-color: #f1c40f;
+  margin-bottom: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.footer-color {
+  background-color: #353536;
+  border-top-width: 8px;
+  border-top-color: #f1c40f;  
 }
 
 .color-letter {
@@ -56,9 +63,15 @@
 
 .hdr-bottom {
 	background-color: #f1c40f;
+  border: 0px;
+  border-radius: 0px;
 }
 
 .logo-size {
 	width: 40px;
 	height: 40px;
+}
+
+.margin-logo-footer {
+  margin-top: -10px;
 }

@@ -75,3 +75,43 @@
 .margin-logo-footer {
   margin-top: -10px;
 }
+
+/*.grey-scale {
+  -webkit-filter: grayscale(80%); 
+  filter: grayscale(100%);
+  -webkit-filter: blur(5px);
+}*/
+
+.grey-scale {
+  -webkit-filter: blur(8px) grayscale(.5) opacity(0.8);
+}
+
+.custom-circle {
+  height: 200px !important;
+  width: 200px;
+  border: solid 10px;
+}
+
+.title-contact-info {
+  font-size: 22px;
+  color: #0b384c;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.text-contact-info {
+  color: #888888;
+}
+.contact-us .input-box, textarea {
+  width: 100%;
+  margin: auto;
+}
+.contact-form-box {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  border-radius: 0px;
+  padding-bottom: 10px;
+  height: 40px;
+}

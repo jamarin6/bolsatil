@@ -7,5 +7,12 @@ class WelcomeController < ApplicationController
 
 		@pageBtc = Mechanize.new.get('https://btc-e.com/api/3/ticker/btc_usd').body
 		@parseJson = JSON.parse @pageBtc
+
+
+	end
+
+
+	def contact
+		
 	end
 end

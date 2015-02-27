@@ -1,0 +1,29 @@
+<%= form_tag(remote: true, :url => welcome_contact_path, :html => {:method => :post, :class => "form-horizontal"}) do %>
+
+  <div class="col-lg-12 col-sm-12 contact-info text-left">
+    <p class="title-contact-info">Contactar</p>
+    <p class="text-contact-info">Es posible contactarnos en el email info@kotraders.com </p><br><br>
+    
+  </div>
+  <div class="col-lg-12 col-sm-12 form-contact">
+    <div class="col-md-12">
+      <div class="contact-form-input">
+        <p class="input-title text-left">Nombre</p>
+        <%= text_field_tag 'name', nil, class: "form-control" %>
+      </div>
+      <div class="contact-form-input">
+        <p class="input-title text-left">Email</p>
+        <%= email_field_tag 'email', nil, class: "form-control" %>
+      </div>
+      <div class="contact-form-input">
+        <p class="input-title text-left">Mensaje</p>
+        <%= text_area_tag 'message', nil, class: "form-control", :rows => "5" %>
+      </div>
+    </div>
+  </div>
+    <div class="col-md-12 col-lg-12">
+      <div class="row">
+        <button class="btn btn-primary custom-button blue-btn" type="submit">Enviar</button>
+      </div>
+    </div>
+<% end %>

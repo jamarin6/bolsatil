@@ -75,51 +75,11 @@
 <!-- fin zona conceptos, 3 columnas -->
 
 	<!--formulario d contacto-->
-		<%= form_tag remote: true, :url => welcome_contact_path, :html => {:method => :post, :class => "form-horizontal"} do %>
-
-		  <div class="col-lg-12 col-sm-12 contact-info text-left">
-		    <p class="title-contact-info">Contactar</p>
-		    <p class="text-contact-info">Es posible contactarno en el email info@kotraders.com </p><br><br>
-		    
-		  </div>
-		  <div class="col-lg-12 col-sm-12 form-contact">
-		    <div class="col-md-12">
-		      <div class="contact-form-input">
-		        <p class="input-title text-left">Nombre</p>
-		        <%= text_field_tag :name, :class => "form-control input-box contact-form-box" %>
-		      </div>
-		      <div class="contact-form-input">
-		        <p class="input-title text-left">Email</p>
-		        <%= email_field_tag :email, :class => "form-control input-box contact-form-box" %>
-		      </div>
-		      <div class="contact-form-input">
-		        <p class="input-title text-left">Mensaje</p>
-		        <%= text_area_tag :message, :class => "form-control textarea-box contact-form-box", :rows => "5" %>
-		      </div>
-		    </div>
-		  </div>
-		    <div class="col-md-12 col-lg-12">
-		      <div class="row">
-		        <button class="btn btn-primary custom-button blue-btn" type="submit">Enviar</button>
-		      </div>
-		    </div>
-		<% end %>
+	<div class="div-form">
+		<div class="container">
+			<%= render "form" %>
+		</div>
+	</div><br><br>
 <!--fin formulario d contacto-->
 
 	<div class="clearfix"></div>
-
-<h1>Esto es el Welcome!!!</h1>
-
-<h3>Parseado: <br>
-	<div id="values_box">
-		<%= @parseJson %><br><br> <!-- pinto todos los valores tipo hash -->
-	</div>
-</h3>
-
-<h3>Pintar el valor 'updated' del json parseado:
-	<div id="updatedValue"><%= @parseJson["btc_usd"]["updated"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
-</h3>
-
-<h3>Pintar el valor <strong>'buy'</strong> que es que se actualiza en la <strong>gráfica</strong>:
-  <div id="buyValue2"><%= @parseJson["btc_usd"]["buy"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
-</h3>

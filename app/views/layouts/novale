@@ -208,3 +208,21 @@
 
 
 +++++++++++++++++++++++++++++++++++++++++++++ fin header antes d nuevo header +++++++++++++++++++
+
+++++++++++++antiguo welcome con info d entrada ++++++
+<h1>Esto es el Welcome!!!</h1>
+
+<h3>Parseado: <br>
+  <div id="values_box">
+    <%= @parseJson %><br><br> <!-- pinto todos los valores tipo hash -->
+  </div>
+</h3>
+
+<h3>Pintar el valor 'updated' del json parseado:
+  <div id="updatedValue"><%= @parseJson["btc_usd"]["updated"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
+</h3>
+
+<h3>Pintar el valor <strong>'buy'</strong> que es que se actualiza en la <strong>gráfica</strong>:
+  <div id="buyValue2"><%= @parseJson["btc_usd"]["buy"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
+</h3>
++++++++++++fin antiguo welcome +++++++++++++++++++++

@@ -73,6 +73,7 @@
 	</div>
 
 <!-- fin zona conceptos, 3 columnas -->
+
 	<!--formulario d contacto-->
 		<%= form_tag remote: true, :url => welcome_contact_path, :html => {:method => :post, :class => "form-horizontal"} do %>
 
@@ -89,7 +90,7 @@
 		      </div>
 		      <div class="contact-form-input">
 		        <p class="input-title text-left">Email</p>
-		        <%= email_field_tag :email, :class => "form-control input-box contact-form-box" %>Mirar pasar clases bien
+		        <%= email_field_tag :email, :class => "form-control input-box contact-form-box" %>
 		      </div>
 		      <div class="contact-form-input">
 		        <p class="input-title text-left">Mensaje</p>
@@ -103,6 +104,7 @@
 		      </div>
 		    </div>
 		<% end %>
+<!--fin formulario d contacto-->
 
 	<div class="clearfix"></div>
 

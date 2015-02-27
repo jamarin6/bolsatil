@@ -89,7 +89,8 @@
 .custom-circle {
   height: 200px !important;
   width: 200px;
-  border: solid 10px;
+  padding: 10px;
+  border: solid 2px #f1c40f;
 }
 
 .title-contact-info {
@@ -114,4 +115,42 @@
   border-radius: 0px;
   padding-bottom: 10px;
   height: 40px;
+}
+.input-box {
+  border: 0;
+  width: 274px;
+  text-align: left;
+  text-transform: none;
+  padding: 9px;
+  height: 40px;
+  padding-left: 15px;
+  display: inline-block;
+  background: rgba(255,255,255, 0.95);
+}
+.textarea-box {
+  border: 0;
+  text-align: left;
+  text-transform: none;
+  padding: 9px;
+  
+  //min-height: 250px;
+  padding-left: 15px;
+  display: inline-block;
+  border-radius: 4px;
+  background: rgba(255,255,255, 0.95);
+}
+.text-contact-info {
+    color: $gris;
+}
+.custom-button {
+  display: inline-block !important;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 13px 35px 13px 35px;
+  border-radius: 4px;
+  margin: 10px;
+  border: none;
+}
+.blue-btn {
+  background: #3ab0e2;
 }

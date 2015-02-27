@@ -49,3 +49,7 @@ gem 'spring',        group: :development
 # Use debugger
  gem 'byebug', group: [:development, :test]
 
+
+group :development do
+  gem 'capistrano-rails', '~> 1.1.2'
+end

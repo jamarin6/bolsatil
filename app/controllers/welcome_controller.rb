@@ -13,6 +13,7 @@ class WelcomeController < ApplicationController
 
 
 	def contact
-		
+		ContactMailer.contact_mail(params[:mail], params[:name], params[:message]).deliver
+		redirect_to root_path
 	end
 end

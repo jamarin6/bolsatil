@@ -86,11 +86,15 @@
   -webkit-filter: blur(8px) grayscale(.5) opacity(0.8);
 }
 
+
 .custom-circle {
   height: 200px !important;
   width: 200px;
   padding: 10px;
-  border: solid 2px #f1c40f;
+  border: solid 2px #353536;
+  margin-top: 10px;
+  -webkit-filter: grayscale(80%); 
+  filter: grayscale(100%);
 }
 
 .title-contact-info {
@@ -156,4 +160,5 @@
 }
 .div-form {
   border: solid 1px #ddd;
+  border-radius: 4px;
 }

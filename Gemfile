@@ -50,4 +50,10 @@ gem 'spring',        group: :development
  gem 'byebug', group: [:development, :test]
 
 
+#<<<<<<< HEAD
 
+#=======
+group :development do
+  gem 'capistrano-rails', '~> 1.1.2'
+end
+#>>>>>>> 03792bd03a8ca176e9cead82b99b40f9a4cbae8e

@@ -104,10 +104,12 @@
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 30px;
+  margin-left: 15px;/*añadido para centrar formulario*/
 }
 
 .text-contact-info {
   color: #888888;
+  margin-left: 15px;/*añadido para centrar formulario*/
 }
 .contact-us .input-box, textarea {
   width: 100%;
@@ -153,13 +155,17 @@
   text-transform: uppercase;
   padding: 13px 35px 13px 35px;
   border-radius: 4px;
-  margin: 10px;
+  /*margin: 10px; quitado para centrar form*/ 
+  margin: 30px; /*añadido para centrar formulario*/
   border: none;
 }
 .blue-btn {
   background: #3ab0e2;
 }
-.div-form {
+.div-form { /*borde del formulario*/
   border: solid 1px #ddd;
   border-radius: 4px;
+}
+.centre-form { /*añadido para centrar la parte derecha del formulario*/
+  padding-right: 45px;
 }

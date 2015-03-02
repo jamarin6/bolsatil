@@ -171,3 +171,13 @@
 .centre-form { /*añadido para centrar la parte derecha del formulario*/
   padding-right: 45px;
 }
+
+#header {
+  margin-bottom: 0px;
+  background: black;
+
+}
+
+#header .navbar-brand img {
+  height: 70px;
+}

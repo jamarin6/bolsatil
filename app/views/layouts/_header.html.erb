@@ -1,0 +1,167 @@
+<nav class="navbar navbar-default" id="header">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <%= image_tag 'logo2.png', :class => 'img-responsive' %>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><div id="btc_chart" style="min-width: 310px; height: 100px; margin: 0 auto"></div></li>
+        <li><h1>Prueba</h1></li>
+        <li><h1>Prueba</h1></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<nav class="navbar navbar-default hdr-bottom"> <!--yellow nav-bar below header-->
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Ko_Traders</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://twitter.com/jamarinhidalgo"><i class="fa fa-linkedin-square"></i></a></li>
+        <li><a href="https://twitter.com/jamarinhidalgo"><i class="fa fa-facebook-square"></i></a></li>
+        <li><a href="https://twitter.com/jamarinhidalgo"><i class="fa fa-twitter-square"></i></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><!-- /.small header -->
+
+
+<script type="text/javascript">
+$(function () {
+  $(document).ready(function () {
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
+
+    $('#btc_chart').highcharts({
+      chart: {
+
+        backgroundColor: {
+           stops: [
+              [0, '#000000'],
+           ]
+        },
+
+        type: 'spline',
+        animation: Highcharts.svg, // don't animate in old IE
+        marginRight: 10,
+        events: {
+            load: function () {
+
+              // set up the updating of the chart each second
+             var series = this.series[0];
+              setInterval(function () {
+                 $.get("<%= welcome_index_url(:format => :js) %>", function(data){
+                      //quiero los datos 'updated' y 'high' en 'x' y en 'y'
+                      var buy_euros = buy_var*0.878397*1.005; //obtengo el valor 'buy' pasado ya a euros y con incremento del 0,5%
+                      var buy_euros_truncate = buy_euros.toFixed(2); //el valor 'buy' en euros con incremento del 0,5% y truncado
+                      var buy_dollars = buy_var*1.005; //el valor en dolares de 'buy' con incremento del 0,5%
+                      var buy_dollars_truncate = buy_dollars.toFixed(2); //'buy' en dolares ya con el incremento y truncado
+                     $('#values_box').html(values); //los valores en forma de hash
+                     $('#updatedValue').html(updated_var);
+                     $('#buy_dollar_value').html("<h1><i class='color-letter fa fa-usd'></i> " + buy_dollars_truncate + "</h1>"); //el valor 'buy' en dolares con un 5% añadido y truncado
+                     $('#buy_euro_value').html("<h1><i class='color-letter fa fa-eur'></i> " + buy_euros_truncate + "</h1>"); //aqui buscar api para descargar la equivalencia a € actualizada
+                     $('#buyValue2').html(buy_var);
+
+                     eval(data);
+                     //alert(typeof x);
+                    series.addPoint([x, buy_var], true, true);
+                    });
+              }, 1000);
+            }
+        }
+      },
+      title: {
+        text: false
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 150
+      },
+      yAxis: {
+        title: {
+          text: false
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+      },
+      tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                Highcharts.numberFormat(this.y, 2);
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      exporting: {
+        enabled: false
+      },
+      series: [{
+        name: 'Random data',
+        data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: Math.random()
+                });
+            }
+            return data;
+        }())
+      }]
+    });
+  });
+});
+</script>

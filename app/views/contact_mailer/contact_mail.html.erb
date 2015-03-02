@@ -4,7 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @name %> desea contactar con nosotros</h1>
+    <h1><%= @nombre.upcase %> desea contactar con nosotros</h1>
+    <h3>Su mensaje es el siguiente: </h3>
     <p><%= @message %></p>
   </body>
 </html>
+
+<style>
+  body {background-color:grey}
+  h1   {color:blue}
+  p    {color:green}
+</style>

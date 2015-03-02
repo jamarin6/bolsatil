@@ -36,7 +36,7 @@
 }
 
 .hdr-style {
-	background-color: #353536;
+	background-color: black;
   margin-bottom: 0px;
   border: 0px;
   border-radius: 0px;
@@ -45,7 +45,7 @@
 .footer-color {
   background-color: #353536;
   border-top-width: 8px;
-  border-top-color: #f1c40f;  
+  border-top-color: #41ccb4;  
   margin-bottom: 0px;
 }
 
@@ -66,7 +66,7 @@
 	background-color: #C1C6C0;
   border-radius: 0px;
   border-bottom-width: 5px;
-  border-bottom-color: #f1c40f;
+  border-bottom-color: #41ccb4;
   margin-bottom: 0px;
   border-top: 0px;
 }
@@ -95,7 +95,7 @@
   height: 200px !important;
   width: 200px;
   padding: 10px;
-  border: solid 2px #f1c40f;
+  border: solid 2px #41ccb4;
   margin-top: 10px;
 }
 
@@ -161,7 +161,7 @@
   border: none;
 }
 .blue-btn {
-  background: #3ab0e2;
+  background: #41ccb4;
 }
 .div-form { /*borde del formulario*/
   border: solid 1px #ddd;

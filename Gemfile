@@ -52,4 +52,5 @@ gem 'spring',        group: :development
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.2'
+  gem "letter_opener"
 end

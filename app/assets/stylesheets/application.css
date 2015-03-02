@@ -14,8 +14,8 @@
  *= require_self
  */
 
-.gris {
-	color: grey;
+.body-color {
+  background-color: #eef1f4;
 }
 
 .hdr-logo {
@@ -46,6 +46,7 @@
   background-color: #353536;
   border-top-width: 8px;
   border-top-color: #f1c40f;  
+  margin-bottom: 0px;
 }
 
 .color-letter {
@@ -62,10 +63,12 @@
 }
 
 .hdr-bottom {
-	background-color: #f1c40f;
-  border: 0px;
+	background-color: #C1C6C0;
   border-radius: 0px;
+  border-bottom-width: 5px;
+  border-bottom-color: #f1c40f;
   margin-bottom: 0px;
+  border-top: 0px;
 }
 
 .logo-size {
@@ -92,10 +95,8 @@
   height: 200px !important;
   width: 200px;
   padding: 10px;
-  border: solid 2px #353536;
+  border: solid 2px #f1c40f;
   margin-top: 10px;
-  -webkit-filter: grayscale(80%); 
-  filter: grayscale(100%);
 }
 
 .title-contact-info {
@@ -165,6 +166,7 @@
 .div-form { /*borde del formulario*/
   border: solid 1px #ddd;
   border-radius: 4px;
+  background-color: white;
 }
 .centre-form { /*añadido para centrar la parte derecha del formulario*/
   padding-right: 45px;

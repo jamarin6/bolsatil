@@ -21,8 +21,8 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li><div id="btc_chart" style="min-width: 310px; height: 100px; margin: 0 auto"></div></li>
-        <li><h1>Prueba</h1></li>
-        <li><h1>Prueba</h1></li>
+        <li><h1><i class='color-letter fa fa-usd'></i><span id="usd_value"></span></h1></li>
+        <li><h1><i class='color-letter fa fa-eur'></i><span id="eur_value"></span></h1></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -92,8 +92,8 @@ $(function () {
                       var buy_dollars_truncate = buy_dollars.toFixed(2); //'buy' en dolares ya con el incremento y truncado
                      $('#values_box').html(values); //los valores en forma de hash
                      $('#updatedValue').html(updated_var);
-                     $('#buy_dollar_value').html("<h1><i class='color-letter fa fa-usd'></i> " + buy_dollars_truncate + "</h1>"); //el valor 'buy' en dolares con un 5% añadido y truncado
-                     $('#buy_euro_value').html("<h1><i class='color-letter fa fa-eur'></i> " + buy_euros_truncate + "</h1>"); //aqui buscar api para descargar la equivalencia a € actualizada
+                     $('#usd_value').html(buy_dollars_truncate); //el valor 'buy' en dolares con un 5% añadido y truncado
+                     $('#eur_value').html(buy_euros_truncate); //aqui buscar api para descargar la equivalencia a € actualizada
                      $('#buyValue2').html(buy_var);
 
                      eval(data);

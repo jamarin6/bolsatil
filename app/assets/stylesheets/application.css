@@ -193,3 +193,7 @@
 .letter-black {
   color: black !important;
 }
+
+#header li {
+  padding-left: 15px;  
+}

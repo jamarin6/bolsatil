@@ -54,3 +54,5 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.2'
   gem "letter_opener"
 end
+
+gem "unicorn", "~> 4.5.0"

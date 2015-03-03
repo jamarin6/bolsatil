@@ -148,7 +148,7 @@
   background: rgba(255,255,255, 0.95);
 }
 .text-contact-info {
-    color: $gris;
+    /*color: $gris;*/
 }
 .custom-button {
   display: inline-block !important;
@@ -182,6 +182,10 @@
   height: 70px;
 }
 
+#header li {
+  padding-left: 15px;  
+}
+
 .green-soft {
   color: #41ccb4 !important;
 }
@@ -194,9 +198,6 @@
   color: black !important;
 }
 
-#header li {
-  padding-left: 15px;  
-}
 
 .gold-color {
   color: #FDD017;

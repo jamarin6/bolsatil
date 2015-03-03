@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:jamarin6/bolsatil.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '~/home/kotraders_web/app'
+#set :deploy_to, '~/home/kotraders_web/app'
 
 # Default value for :scm is :git
 # set :scm, :git

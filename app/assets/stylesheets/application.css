@@ -181,3 +181,7 @@
 #header .navbar-brand img {
   height: 70px;
 }
+
+#header li {
+  padding-left: 15px;  
+}

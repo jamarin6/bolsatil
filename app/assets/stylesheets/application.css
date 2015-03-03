@@ -36,14 +36,14 @@
 }
 
 .hdr-style {
-	background-color: black;
+	background-color: #1d2028;
   margin-bottom: 0px;
   border: 0px;
   border-radius: 0px;
 }
 
 .footer-color {
-  background-color: #353536;
+  background-color: #1d2028;
   border-top-width: 8px;
   border-top-color: #41ccb4;  
   margin-bottom: 0px;
@@ -63,7 +63,7 @@
 }
 
 .hdr-bottom {
-	background-color: #C1C6C0;
+	background-color: #7d7e81;
   border-radius: 0px;
   border-bottom-width: 5px;
   border-bottom-color: #41ccb4;
@@ -87,7 +87,7 @@
 }*/
 
 .grey-scale {
-  -webkit-filter: blur(8px) grayscale(.5) opacity(0.8);
+  -webkit-filter: blur(1px) grayscale(.8) opacity(0.9);
 }
 
 
@@ -174,10 +174,22 @@
 
 #header {
   margin-bottom: 0px;
-  background: black;
-
+  background: #1d2028;
+  border-bottom: 0px;
 }
 
 #header .navbar-brand img {
   height: 70px;
+}
+
+.green-soft {
+  color: #41ccb4 !important;
+}
+
+.letter-hdr {
+  color: #7d7e81;
+}
+
+.letter-black {
+  color: black !important;
 }

@@ -6,7 +6,7 @@ TIMEOUT=${TIMEOUT-120}
 APP_ROOT=/home/kotraders_web/app/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/production/unicorn.rb -E production"
-AS_USER=jobssy-search
+AS_USER=kotraders_web
 set -u
 
 OLD_PIN="$PID.oldbin"

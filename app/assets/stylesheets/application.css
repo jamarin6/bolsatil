@@ -35,13 +35,6 @@
   height: 350px;
 }
 
-.hdr-style {
-	background-color: #1d2028;
-  margin-bottom: 0px;
-  border: 0px;
-  border-radius: 0px;
-}
-
 .footer-color {
   background-color: #1d2028;
   border-top-width: 8px;
@@ -65,10 +58,9 @@
 .hdr-bottom {
 	background-color: #7d7e81;
   border-radius: 0px;
-  border-bottom-width: 5px;
-  border-bottom-color: #41ccb4;
+  border-width: 0px 0px 5px 0px;
+  border-color: #41ccb4;
   margin-bottom: 0px;
-  border-top: 0px;
 }
 
 .logo-size {
@@ -141,7 +133,7 @@
   background: rgba(255,255,255, 0.95);
 }
 .text-contact-info {
-    color: $gris;
+    /*color: $gris;*/
 }
 .custom-button {
   display: inline-block !important;
@@ -168,13 +160,24 @@
   margin-bottom: 0px;
   background: #1d2028;
   border-bottom: 0px;
+  border: 0px;
+  border-radius: 0px;
+
 }
 
 #header .navbar-brand img {
   height: 70px;
 }
 
-.green-soft { /* el color verde suave de la pagina */
+#header li {
+  padding-left: 15px;  
+}
+
+.social-icons {
+  color: white;
+}
+
+.green-soft {
   color: #41ccb4 !important;
 }
 
@@ -186,9 +189,6 @@
   color: black !important;
 }
 
-#header li {
-  padding-left: 15px;  
-}
 
 .gold-color { /* color oro, para simbolos $ y € */
   color: #FDD017;

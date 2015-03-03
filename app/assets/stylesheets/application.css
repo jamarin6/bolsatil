@@ -72,16 +72,9 @@
   margin-top: -10px;
 }
 
-/*.grey-scale {
-  -webkit-filter: grayscale(80%); 
-  filter: grayscale(100%);
-  -webkit-filter: blur(5px);
-}*/
-
 .grey-scale {
   -webkit-filter: blur(1px) grayscale(.8) opacity(0.9);
 }
-
 
 .custom-circle {
   height: 200px !important;
@@ -97,12 +90,12 @@
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 30px;
-  margin-left: 15px;/*añadido para centrar formulario*/
+  margin-left: 15px;
 }
 
 .text-contact-info {
   color: #888888;
-  margin-left: 15px;/*añadido para centrar formulario*/
+  margin-left: 15px;
 }
 .contact-us .input-box, textarea {
   width: 100%;
@@ -148,8 +141,7 @@
   text-transform: uppercase;
   padding: 13px 35px 13px 35px;
   border-radius: 4px;
-  /*margin: 10px; quitado para centrar form*/ 
-  margin: 30px; /*añadido para centrar formulario*/
+  margin: 30px;
   border: none;
 }
 .blue-btn {
@@ -189,15 +181,15 @@
   color: #41ccb4 !important;
 }
 
-.letter-hdr {
+.letter-hdr { /* color para las letras en header y footer, para que se vean bien */
   color: #7d7e81;
 }
 
-.letter-black {
+.letter-black { /* para dar color negro a algun texto que lo necesita */
   color: black !important;
 }
 
 
-.gold-color {
+.gold-color { /* color oro, para simbolos $ y € */
   color: #FDD017;
 }

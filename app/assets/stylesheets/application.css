@@ -74,6 +74,8 @@
 
 .grey-scale {
   -webkit-filter: blur(1px) grayscale(.8) opacity(0.9);
+  filter: blur(1px) grayscale(.8) opacity(0.9);
+
 }
 
 .custom-circle {

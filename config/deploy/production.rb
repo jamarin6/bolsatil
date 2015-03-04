@@ -15,6 +15,8 @@ role :db,  %w{kotraders_web@10.195.46.2}
 # used to set extended properties on the server.
 
 set :deploy_to, '~/app'
+set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
+
 
 # Custom SSH Options
 # ==================

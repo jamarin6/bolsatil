@@ -15,7 +15,8 @@
  */
 
 .body-color {
-  background-color: #eef1f4;
+  /*background-color: #eef1f4;*/
+  background-color: red;
 }
 
 .hdr-logo {

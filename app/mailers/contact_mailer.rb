@@ -6,6 +6,6 @@ class ContactMailer < ActionMailer::Base
   	@nombre = nombre
 	@message = message
 
-  	mail(to: 'jamarinhidalgo@gmail.com', subject: 'Contacto en Kotraders')
+  	mail(to: 'info@kotraders.com', subject: 'Contacto en Kotraders')
   end
 end

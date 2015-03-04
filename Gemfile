@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use mysql as the database for Active Record
@@ -15,10 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 
 # Bootstrap in front
-gem 'twitter-bootstrap-rails', '~> 3.2.0'
-
+gem 'bootstrap-sass', '~> 3.3.3'
 gem "font-awesome-rails", '~> 4.2.0'
-
 
 gem 'mechanize', '~> 2.7.3'
 # Use jquery as the JavaScript library

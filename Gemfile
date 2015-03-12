@@ -51,6 +51,8 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.2'
   gem 'capistrano3-unicorn'
   gem "letter_opener"
+  gem "table_print" #gema para pintar objetos en consola como tablas. Ej: tp User.all, :email => {:width => 12} -- Para varios objetos
+  gem "awesome_print", require:"ap" #para pintar objetos en consola. Ej: ap User.last -- Para un solo objeto
 end
 
 gem "unicorn", "~> 4.5.0"

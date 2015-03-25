@@ -44,8 +44,9 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
- gem 'byebug', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 
+gem 'whenever', :require => false
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.2'

@@ -15,6 +15,7 @@ role :db,  %w{kotraders_web@10.195.46.2}
 # used to set extended properties on the server.
 
 set :deploy_to, '~/app'
+set :whenever_environment, 'production'
 
 # Custom SSH Options
 # ==================

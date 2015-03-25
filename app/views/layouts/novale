@@ -226,3 +226,112 @@
   <div id="buyValue2"><%= @parseJson["btc_usd"]["buy"] %></div> <!-- elijo un valor aislado sacandolo del hash -->
 </h3>
 +++++++++++fin antiguo welcome +++++++++++++++++++++
+
++++++++++++++++++++++++++++++++++++++grafica 1ª q funcionaba bien ++++++++++++++++++++++++++++
+
+<script type="text/javascript">
+$(function () {
+  $(document).ready(function () {
+
+  Highcharts.theme = {
+     colors: ["#41ccb4"],
+     chart: {
+      backgroundColor: '#1d2028'
+     },
+     tooltip: {
+        borderWidth: 0,
+        backgroundColor: 'rgba(219,219,216,0.8)',
+        shadow: false
+     },
+
+     // General
+     background2: '#F0F0EA'
+     
+  };
+
+    Highcharts.setOptions(Highcharts.theme);
+
+    $('#btc_chart').highcharts({
+      chart: {
+        type: 'spline',
+        animation: Highcharts.svg, // don't animate in old IE
+        marginRight: 10,
+        events: {
+            load: function () {
+
+              // set up the updating of the chart each second
+             var series = this.series[0];
+              setInterval(function () {
+                 $.get("<%= welcome_index_url(:format => :js) %>", function(data){
+                      //quiero los datos 'updated' y 'high' en 'x' y en 'y'
+                      var buy_euros = buy_var*0.878397*1.005; //obtengo el valor 'buy' pasado ya a euros y con incremento del 0,5%
+                      var buy_euros_truncate = buy_euros.toFixed(2); //el valor 'buy' en euros con incremento del 0,5% y truncado
+                      var buy_dollars = buy_var*1.005; //el valor en dolares de 'buy' con incremento del 0,5%
+                      var buy_dollars_truncate = buy_dollars.toFixed(2); //'buy' en dolares ya con el incremento y truncado
+                     $('#values_box').html(values); //los valores en forma de hash
+                     $('#updatedValue').html(updated_var);
+                     $('#usd_value').html(buy_dollars_truncate); //el valor 'buy' en dolares con un 5% añadido y truncado
+                     $('#eur_value').html(buy_euros_truncate); //aqui buscar api para descargar la equivalencia a € actualizada
+                     $('#buyValue2').html(buy_var);
+
+                     eval(data);
+                     //alert(typeof x);
+                    series.addPoint([x, buy_var], true, true);
+                    });
+              }, 1000);
+            }
+        }
+      },
+      title: {
+        text: false
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 150
+      },
+      yAxis: {
+        title: {
+          text: false
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+      },
+      tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                Highcharts.numberFormat(this.y, 2);
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      exporting: {
+        enabled: false
+      },
+      series: [{
+        name: 'Random data',
+        data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -10; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: Math.random(5)
+                });
+            }
+            return data;
+        }())
+      }]
+    });
+  });
+});
+</script>
+
+++++++++++++++++++++++++++++++++++ fin grafica 1ª q funcionaba bien ++++++++++++++++++++++++++
